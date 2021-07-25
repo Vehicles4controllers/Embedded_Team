@@ -16,7 +16,7 @@
 /***************************************************************************************************************************************************/
 /* MSTK_CLKSOURCE: 	MSTK_SYS_CLK_DIV_4
 					MSTK_SYS_CLK	   */
-#define MSTK_CLKSOURCE		MSTK_SYS_CLK_DIV_4
+#define MSTK_CLKSOURCE		MSTK_SYS_CLK
 
 /* MSTK_STATE: 	MSTK_DISABLE
 				MSTK_ENABLE  */
@@ -26,8 +26,11 @@
 					MSTK_ENABLE  */
 #define MSTK_INTERRUPT		MSTK_DISABLE
 
-/* AHP Clock */
-#define MSTK_SYS_CLK_CLK	12000000
+/* SYS Clock */
+#define MSTK_SYS_CLK_CLK	80000000
+
+/* RTOS */
+#define MUART_NUMBER_OF_TASKS 10
 /***************************************************************************************************************************************************/ 
 
 /***************************************************************************************************************************************************/ 

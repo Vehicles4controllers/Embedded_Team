@@ -22,9 +22,9 @@
 /* STK Register */
 typedef struct
 {
-	volatile u32 CTRL   ;			// SysTick Control and Status Register (STCTRL)
-	volatile u32 RELOAD ;			// SysTick Reload Value Register (STRELOAD)
-	volatile u32 CURRENT;			// SysTick Current Value Register (STCURRENT)
+	volatile uint32_t CTRL   ;			// SysTick Control and Status Register (STCTRL)
+	volatile uint32_t RELOAD ;			// SysTick Reload Value Register (STRELOAD)
+	volatile uint32_t CURRENT;			// SysTick Current Value Register (STCURRENT)
 }MSTK_Type;
 
 #define MSTK					((volatile MSTK_Type*)MSTK_BASE_ADDRESS)
@@ -50,6 +50,7 @@ typedef struct
 #define MSTK_4     				4 
 #define MSTK_8     				8 
 #define MSTK_1000     			1000 
+#define MSTK_10000     			10000 
 #define MSTK_1000000     		1000000
 #define MSTK_0xFFFFFF     		0xFFFFFF
 
@@ -66,7 +67,7 @@ typedef struct
 /*                                                                 Global Variables                                                                */
 /***************************************************************************************************************************************************/
 static u8  MSTK_u8IntervalMode;		// Define Variable for interval mode
-static u32 MSTK_u32Clk;
+static uint32_t MSTK_u32Clk;
 /***************************************************************************************************************************************************/
 
 /***************************************************************************************************************************************************/
@@ -83,7 +84,7 @@ void SysTick_Handler(void)
 	if      (MSTK_u8IntervalMode == MSTK_SINGLE_INTERVAL)
 	{
 		/* Disable STK Interrupt */
-		CLR_BIT(MSTK->CTRL,TICKINT_BIT);
+		CLR_BIT(MSTK->CTRL,INTEN_BIT);
 		/* Stop Timer */
 		CLR_BIT(MSTK->CTRL,ENABLE_BIT);
 		/* Load Zero to STK_LOAD */
@@ -106,7 +107,7 @@ void SysTick_Handler(void)
 	}
 	
 	/* Clear Interrupt Flag */
-	Local_u8Temporary = GET_BIT(MSTK->CTRL,COUNTFLAG_BIT);
+	Local_u8Temporary = GET_BIT(MSTK->CTRL,COUNT_BIT);
 }
 /***************************************************************************************************************************************************/
 

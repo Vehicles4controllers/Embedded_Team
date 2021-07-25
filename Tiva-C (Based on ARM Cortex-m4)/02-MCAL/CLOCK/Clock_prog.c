@@ -42,7 +42,7 @@ void Clock_voidFrequencySet(double Freq)
 
         // 5) wait for the PLL to lock by polling PLLLRIS
 
-//        while((SYSCTL_RIS_R&0x00000040)==0){};  // wait for PLLRIS bit
+        while((SYSCTL_RIS_R&0x00000040)==0){};  // wait for PLLRIS bit
 
         // 6) enable use of PLL by clearing BYPASS
 
