@@ -6,16 +6,19 @@
 C_SRCS += \
 ../DIO_program.c \
 ../SEVSEG_program.c \
+../UART_program.c \
 ../main.c 
 
 OBJS += \
 ./DIO_program.o \
 ./SEVSEG_program.o \
+./UART_program.o \
 ./main.o 
 
 C_DEPS += \
 ./DIO_program.d \
 ./SEVSEG_program.d \
+./UART_program.d \
 ./main.d 
 
 
